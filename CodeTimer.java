@@ -1,4 +1,8 @@
 package selectionSort;
+
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
+
 /**
  * CodeTimer class is called upon to get time various algorithms
  * and executions take to process. 
@@ -8,13 +12,14 @@ package selectionSort;
 public class CodeTimer
 {
   //Long variable to hold the time value of execution.
-  private long executionTime;
+  private long time;
+  ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
   
   /**
    * Class constructor initiates execution time to 0.
    */
   public CodeTimer() {
-    this.executionTime = 0;
+    this.time = 0;
   }
   
   /**
@@ -22,7 +27,7 @@ public class CodeTimer
    * initiated and captures the current JVM clock time upon start.
    */
   public void startTimer() {
-    this.executionTime = System.nanoTime();
+    this.time = threadMXBean.getCurrentThreadCpuTime();
   }
   
   /**
@@ -31,7 +36,7 @@ public class CodeTimer
    * class variable with a current nanoTime minus the starting time. 
    */
   public void stopTimer() {
-    this.executionTime = System.nanoTime() - executionTime;
+    this.time = threadMXBean.getCurrentThreadCpuTime() - time;
   }
   
   /**
@@ -39,7 +44,7 @@ public class CodeTimer
    * it to be called again with a fresh starting value of 0.
    */
   public void resetTimer() {
-    this.executionTime = 0;
+    this.time = 0;
   }
 
   /**
@@ -50,17 +55,6 @@ public class CodeTimer
    */
   public long getExecutionTime()
   {
-    return executionTime;
-  }
-
-  /**
-   * toString method outputs the value of the variable with text, 
-   * but is not currently called upon in my RandomSelectionSort class. 
-   */
-  public String toString() {
-    String timerDescription = "Current execution time: "
-        + this.executionTime + " in nanoseconds.";
-    
-    return timerDescription;
+    return time;
   }
 }

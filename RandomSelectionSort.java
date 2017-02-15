@@ -32,12 +32,12 @@ public final class RandomSelectionSort {
    */
   public static final void main(String... aArgs){
     //Declaration print statement. Change numbers as needed.
-    toString("Generating 500 random integers in range 0..99.");
+    toString("Generating 650,000 random integers in range 0..99.");
 
     // for loop controlling amount of times sort needs to be ran.
     for(int i = 1; i<=10; i++){
       //method call of how many random elements to create in array.
-      numberGenerate(50);
+      numberGenerate(650000);
 
       //Print with decimal formatting from nanoTime into seconds.
       toString("Total Sort Time : " + 
@@ -55,7 +55,6 @@ public final class RandomSelectionSort {
   private static void toString(String msg){
     System.out.println(msg);
   }
-
 
   /**
    * numberGenerate method creates an ArrayList object when called upon
@@ -96,12 +95,12 @@ public final class RandomSelectionSort {
   public static void selectionSort(ArrayList<Integer> numbers) {
 
     int minIndex, //placeholder for lowest value in array.
-        tmp; //temporary value used as a index placeholder.
+    tmp; //temporary value used as a index placeholder.
 
     //Creates a new array of integers using the array passed as argument
     //to be used in the sorting.
     Integer[] bar = numbers.toArray(new Integer[numbers.size()]);
-    
+
     //captures the size of array for correct computation.
     int n = numbers.size();
 
