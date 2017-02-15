@@ -59,9 +59,7 @@ public final class RandomSelectionSort {
   /**
    * numberGenerate method creates an ArrayList object when called upon
    * and inserts random integers using a Random object. 
-   * @param howMany
-   * @return 
-   * @return
+   * @param howMany number of elements to create in array.
    */
   public static void numberGenerate(int howMany){
 
